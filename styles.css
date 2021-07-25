@@ -394,7 +394,6 @@ footer button.show {
     .quiz_box,
     .result_box {
         position: absolute;
-        height: 80vh;
         width:90vw;
         top: 50%;
         left: 50%;
