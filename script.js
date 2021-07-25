@@ -4,24 +4,40 @@ const exit_btn = info_box.querySelector(".buttons .quit");
 const continue_btn = info_box.querySelector(".buttons .restart");
 const quiz_box = document.querySelector(".quiz_box");
 const result_box = document.querySelector(".result_box");
+const replay_btn = result_box.querySelector(".buttons .restart")
 const option_list = document.querySelector(".option_list");
-const responses = [];
+var responses = [];
 var myPersoArray = {"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0}
 // if startQuiz button clicked
 start_btn_script.onclick = ()=>{
     info_box.classList.add("activeInfo"); //show info box
 }
-// if exitQuiz button clicked
-exit_btn.onclick = ()=>{
-    info_box.classList.remove("activeInfo"); //hide info box
-}
-// if continueQuiz button clicked
-continue_btn.onclick = ()=>{
+
+replay_btn.addEventListener("click", function(){
+    result_box.classList.remove("activeResult")
     info_box.classList.remove("activeInfo"); //hide info box
     quiz_box.classList.add("activeQuiz"); //show quiz box
     showQuetions(0); //calling showQestions function
     queCounter(1); //passing 1 parameter to queCounter
-}
+    que_count = 0;
+    que_numb = 1;
+    myPersoArray = {"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0};
+    responses=[];
+})
+// if exitQuiz button clicked
+continue_btn.addEventListener("click",function(){
+    result_box.classList.remove("activeResult")
+    info_box.classList.remove("activeInfo"); //hide info box
+    quiz_box.classList.add("activeQuiz"); //show quiz box
+    showQuetions(0); //calling showQestions function
+    queCounter(1); //passing 1 parameter to queCounter
+    que_count = 0;
+    que_numb = 1;
+    myPersoArray = {"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0};
+    responses=[];
+})
+// if continueQuiz button clicked
+
 let que_count = 0;
 let que_numb = 1;
 const quit_quiz = result_box.querySelector(".buttons .quit");
